@@ -1,0 +1,173 @@
+import time
+import random
+
+def slow_print(text, delay=2):
+    """Function to print text slowly with a delay."""
+    for char in text:
+        print(char, end='', flush=True)
+        time.sleep(0.05)
+    print()
+    time.sleep(delay)
+
+def start_game():
+    slow_print("Welcome, traveler, to the hidden world of Japan...\n")
+    slow_print("You are about to embark on an adventure through ancient temples, dense forests, and mythical creatures.\n")
+    slow_print("Your journey begins at the edge of a vast bamboo forest. The temple lies deep within.\n")
+    
+    # Starting the main choices
+    choice_1()
+
+def choice_1():
+    slow_print("You are standing at the entrance of the bamboo forest.\n")
+    slow_print("Ahead, you see two paths:\n")
+    slow_print("1. A winding trail leading into the dark forest.\n")
+    slow_print("2. A stone bridge crossing a river, with a small shrine nearby.\n")
+    
+    choice = input("Which path will you take? (1 or 2): ")
+    
+    if choice == "1":
+        path_1()
+    elif choice == "2":
+        path_2()
+    else:
+        slow_print("Invalid choice. Please choose 1 or 2.")
+        choice_1()
+
+def path_1():
+    slow_print("You step onto the winding trail, the bamboo towering over you on both sides.\n")
+    slow_print("The forest is eerily quiet, save for the occasional rustle of leaves.\n")
+    slow_print("Suddenly, a Kitsune (fox spirit) appears before you, its fur shining in the moonlight.\n")
+    
+    slow_print("It looks at you curiously and says, 'Answer my riddle and you may pass. Fail, and you will be lost forever.'\n")
+    slow_print("The Kitsune asks: 'I have keys but open no locks. I have space but no room. You can enter, but you can't go outside. What am I?'")
+    
+    answer = input("Your answer: ")
+    
+    if answer.lower() == "keyboard":
+        slow_print("The Kitsune nods and steps aside, granting you passage.\n")
+        path_2()  # You continue the journey!
+    else:
+        slow_print("The Kitsune smiles mischievously and disappears into the shadows.\n")
+        slow_print("You feel disoriented and find yourself back at the entrance of the forest.\n")
+        choice_1()
+
+def path_2():
+    slow_print("You cross the stone bridge, the sound of the flowing river beneath calming you.\n")
+    slow_print("Near the shrine, a small monk appears. He looks at you and says, 'The path ahead is not easy.'\n")
+    slow_print("He offers you a lantern and says, 'This will help you when the darkness comes.'\n")
+    
+    slow_print("Do you accept the monk's lantern?\n")
+    choice = input("Yes or No: ")
+    
+    if choice.lower() == "yes":
+        slow_print("The monk hands you the lantern and smiles, 'May the light guide you on your journey.'\n")
+        slow_print("You continue forward, the path ahead opening up into a vast temple complex.\n")
+        final_choices()
+    else:
+        slow_print("The monk nods in silence, and you venture on without the lantern.\n")
+        slow_print("The path ahead becomes darker and more treacherous. Without the light, your journey becomes much harder.\n")
+        final_choices()
+
+def final_choices():
+    slow_print("After many days of traveling, you reach the gates of the ancient temple. It looms over you, covered in moss and vines.\n")
+    slow_print("The doors are locked, but there seems to be an inscription on the stone arch.\n")
+    slow_print("You can either:")
+    slow_print("1. Try to solve the riddle written above the door.\n")
+    slow_print("2. Knock on the door to see if anyone is inside.\n")
+    
+    choice = input("What will you do? (1 or 2): ")
+    
+    if choice == "1":
+        solve_riddle()
+    elif choice == "2":
+        knock_door()
+    else:
+        slow_print("Invalid choice. Please choose 1 or 2.")
+        final_choices()
+
+def solve_riddle():
+    slow_print("You approach the inscription and read the riddle aloud:\n")
+    slow_print("'I fly without wings. I cry without eyes. Wherever I go, darkness flies. What am I?'")
+    
+    answer = input("Your answer: ")
+    
+    if answer.lower() == "cloud":
+        slow_print("The door creaks open slowly, and you enter the temple.\n")
+        temple_entrance()
+    else:
+        slow_print("The stone arch vibrates, and the riddle repeats itself. You must answer correctly to continue.\n")
+        solve_riddle()
+
+def knock_door():
+    slow_print("You knock on the heavy wooden door. After a long silence, it creaks open, and an old woman stands before you.\n")
+    slow_print("'I am the keeper of the temple,' she says. 'What is your purpose here, traveler?'")
+    
+    slow_print("You can choose to:")
+    slow_print("1. Tell her you seek enlightenment.\n")
+    slow_print("2. Ask her if she knows the secret to unlocking the temple's treasures.\n")
+    
+    choice = input("What will you do? (1 or 2): ")
+    
+    if choice == "1":
+        slow_print("'Enlightenment comes to those who seek knowledge with a pure heart.'\n")
+        slow_print("She waves her hand and the door opens wider, allowing you to step inside.\n")
+        temple_entrance()
+    elif choice == "2":
+        slow_print("'There are no treasures here except the wisdom you find within yourself,' she replies.\n")
+        slow_print("She smiles, and the door opens wider for you to enter.\n")
+        temple_entrance()
+    else:
+        slow_print("She looks at you with piercing eyes. 'Make a decision, traveler. Time is precious.'\n")
+        knock_door()
+
+def temple_entrance():
+    slow_print("You step into the grand hall of the temple, lit by flickering candlelight. The air is thick with the scent of incense.\n")
+    slow_print("At the far end of the hall is a large statue of a Buddha, surrounded by offerings. A door to your right leads further into the temple.\n")
+    
+    slow_print("You can choose to:")
+    slow_print("1. Approach the Buddha statue and offer your respect.\n")
+    slow_print("2. Open the door on the right to explore further.\n")
+    
+    choice = input("What will you do? (1 or 2): ")
+    
+    if choice == "1":
+        buddha_statue()
+    elif choice == "2":
+        hidden_room()
+    else:
+        slow_print("Invalid choice. Please choose 1 or 2.")
+        temple_entrance()
+
+def buddha_statue():
+    slow_print("You kneel before the Buddha statue, offering your respect. As you do, a sense of peace washes over you.\n")
+    slow_print("A soft voice whispers in your ear, 'Wisdom is found in the quiet moments, not the grand gestures.'\n")
+    slow_print("Suddenly, the floor beneath you shifts, and a hidden compartment opens with a scroll inside.\n")
+    slow_print("The scroll contains an ancient prayer. You take it as a reminder of your journey.\n")
+    slow_print("You feel enlightened and content. Your adventure has come to a peaceful end.\n")
+    slow_print("Thank you for playing!\n")
+
+def hidden_room():
+    slow_print("You open the door and step into a hidden room. The walls are covered in ancient symbols and paintings.\n")
+    slow_print("In the center of the room is a stone pedestal with a glowing orb.\n")
+    
+    slow_print("You can choose to:")
+    slow_print("1. Touch the orb to discover its power.\n")
+    slow_print("2. Leave the orb untouched, respecting the sanctity of the temple.\n")
+    
+    choice = input("What will you do? (1 or 2): ")
+    
+    if choice == "1":
+        slow_print("You touch the orb, and a surge of energy fills your body.\n")
+        slow_print("The room around you begins to blur as you are transported to a mystical dimension.\n")
+        slow_print("You now exist in the realm of spirits, forever part of the temple’s history.\n")
+        slow_print("Thank you for playing!\n")
+    elif choice == "2":
+        slow_print("You respect the sanctity of the temple and leave the orb untouched.\n")
+        slow_print("You return to the main hall, your heart filled with peace and knowledge.\n")
+        slow_print("Thank you for playing!\n")
+    else:
+        slow_print("Invalid choice. Please choose 1 or 2.")
+        hidden_room()
+
+# Starting the game
+start_game()

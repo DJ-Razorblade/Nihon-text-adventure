@@ -1,0 +1,2 @@
+# Nihon-text-adventure
+ughuahgiughauihrthusuitghghg
